@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Demo</title>
+    <link rel="stylesheet" href="./stylesheets/bootstrap/css/bootstrap.min.css">
+    <script src="./javascripts/jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form id="product-form">
+            <h1>Product Form</h1>
+            <div class="form-group">
+                <label for="inputProductName">Product name</label>
+                <input type="text" class="form-control" id="inputProductName" placeholder="Enter product name">
+            </div>
+            <div class="form-group">
+                <label for="inputProductPrice">Product price</label>
+                <input type="text" class="form-control" id="inputProductPrice" placeholder="Enter product price">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <table class="table-hover table table-striped">
+            <thead>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Price</th>
+            </thead>
+            <tbody id="product-list">
+            </tbody>
+        </table>
+    </div>
+    <script src="./javascripts/main.js"></script>
+</body>
+
+</html>
