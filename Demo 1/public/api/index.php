@@ -103,26 +103,24 @@
 
 	$app->post('/product/create', function(Request $req, Response $res){
 		$body = $req->getParsedBody();
-		// $this->logger->info(print_r($body, true));
 		$productController = new ProductController ($this->db);
-		$result = $productController->create($body, $this->logger);
+		$result = $productController->create($body);
 		return $res->withJson($result['data'], $result['status']);
 	});
 
-	// $app->post('/product/update', function(Request $req, Response $res){
-	// 	$body = $req->getParsedBody();
-	// 	$this->logger->info(print_r($body, true));
-	// 	$productController = new ProductController ($this->db);
-	// 	$result = $productController->update($body);			
-	// 	return $res->withJson($result['data'], $result['status']);
-	// });
+	$app->post('/product/update', function(Request $req, Response $res){
+		$body = $req->getParsedBody();
+		$productController = new ProductController ($this->db);
+		$result = $productController->update($body);			
+		return $res->withJson($result['data'], $result['status']);
+	});
 
-	// $app->post('/trophy/delete', function(Request $req, Response $res){
-	// 	$body = $req->getParsedBody();
-	// 	$trophyController = new TrophyController($this->db);
-	// 	$result = $trophyController->delete($body);			
-	// 	return $res->withJson($result['data'], $result['status']);
-	// });
+	$app->post('/product/delete', function(Request $req, Response $res){
+		$body = $req->getParsedBody();
+		$productController = new ProductController ($this->db);
+		$result = $productController->delete($body);			
+		return $res->withJson($result['data'], $result['status']);
+	});
 	
 	$app->run();
 

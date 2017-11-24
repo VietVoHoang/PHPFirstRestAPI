@@ -21,22 +21,24 @@ var renderContent = function (products) {
             '<td>' + (i + 1) + '</td>' +
             '<td>' + products[i].productName + '</td>' +
             '<td>' + products[i].productPrice + '</td>' +
-            '<td><input type="button" value="Edit" onClick="viewDetail(' + products[i].id + ')"/></td>' +
+            '<td><input type="button" class="btn btn-warning" value="Edit" onClick="viewDetail(' + products[i].id + ')"/></td>' +
+            '<td><input type="button" class="btn btn-danger" value="Remove" onClick="remove(' + products[i].id + ')"/></td>' +
             '</tr>');
         tBody.append(tr);
     }
 }
 
-var viewDetail = function(id){
+var viewDetail = function (id) {
     $.ajax({
-        url: API_URL + 'findById',
+        url: API_URL + 'product/findById',
         method: 'POST',
-        data:{
+        data: {
             'id': id
         },
         success: function (data) {
-            console.log(data);
-            renderContent(data);
+            $('#inputProductName').val(data.productName);
+            $('#inputProductPrice').val(data.productPrice);
+            $('#updateId').val(data.id);
         },
         error: function (error) {
             console.log('get all err: ' + error)
